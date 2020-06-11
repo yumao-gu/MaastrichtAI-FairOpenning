@@ -8,16 +8,14 @@ players_number = 3
 test_num = 10
 
 def State3():
-    stateA = random.uniform(low_prob,1./3)
-    stateB = random.uniform(stateA,(1-stateA)/2)
-    assert stateA<=stateB and stateB<=1-stateA-stateB
+    stateA = random.uniform(low_prob,1.)
+    stateB = random.uniform(low_prob,1-stateA)
     return [stateA,stateB,1-stateA-stateB]
 
 def State4():
-    stateA = random.uniform(low_prob,1./4)
-    stateB = random.uniform(stateA,(1-stateA)/3)
-    stateC = random.uniform(stateB,(1-stateA-stateB)/2)
-    assert stateA<=stateB and stateB<=stateC and stateC<=1-stateA-stateB-stateC
+    stateA = random.uniform(low_prob,1.)
+    stateB = random.uniform(low_prob,1-stateA)
+    stateC = random.uniform(low_prob,1-stateA-stateB)
     return [stateA,stateB,stateC,1-stateA-stateB-stateC]
 
 def State(players_number):
@@ -36,15 +34,20 @@ def ProbToInt(list):
 def GenStates(positions,players_number):
     states_space = {}
     for comb in combinations(positions,players_number):
-        comb_name = ''.join(comb)
         comb_state = State(players_number)
-        states_space[comb_name] = comb_state
+        tmp_comb={}
+        for i in range(players_number):
+            tmp_comb[comb[i]] = comb_state[i]
+        for perm in permutations(comb):
+                perm_name = ''.join(perm)
+                perm_state = [tmp_comb[c] for c in perm]
+                states_space[perm_name] = perm_state
     return states_space
 
-def Project(position,states):
+def Project(player_id,position,states):
     project_states = {}
     for key, value in states.items():
-        if position in key:
+        if key.find(position) == player_id-1:
             project_states[key] = value
     return project_states
 
@@ -65,7 +68,7 @@ def FindFair_d(states):
         fair_state['comb']=key
         fair_state['prob']=value
     for key, value in states.items():
-        if value[0] > fair_state['prob'][0]:
+        if min(value) > min(fair_state['prob']):
             fair_state['comb']=key
             fair_state['prob']=value
     return fair_state
@@ -76,7 +79,7 @@ def FindFair_D(states):
         fair_state['comb']=key
         fair_state['prob']=value
     for key, value in states.items():
-        if value[-1] < fair_state['prob'][-1]:
+        if max(value) < max(fair_state['prob']):
             fair_state['comb']=key
             fair_state['prob']=value
     return fair_state
@@ -102,15 +105,15 @@ def FindFair_D_bar(states,players_number):
 def Strategy3(states_space):
     bestAs = {}
     for positionA in positions:
-        projectA = Project(positionA,states_space)
+        projectA = Project(1,positionA,states_space)
         bestBs = {}
         for positionB in positions:
             if positionA is not positionB:
-                projectB = Project(positionB,projectA)
+                projectB = Project(2,positionB,projectA)
                 bestCs = {}
                 for positionC in positions:
                     if positionA is not positionC and positionB is not positionC :
-                        projectC = Project(positionC,projectB)
+                        projectC = Project(3,positionC,projectB)
                         tmpC=FindBest(3,projectC)
                         # print("tmpC\t{s}".format(s=tmpC))
                         bestCs[tmpC['comb']] = tmpC['prob']
@@ -118,9 +121,9 @@ def Strategy3(states_space):
                 bestC = FindBest(3,bestCs)
                 # print("bestC\t{s}".format(s=bestC))
                 bestBs[bestC['comb']] = bestC['prob']
-        print("bestBs\t{s}".format(s=bestBs))
+        # print("bestBs\t{s}".format(s=bestBs))
         bestB = FindBest(2,bestBs)
-        print("bestB\t{s}".format(s=bestB))
+        # print("bestB\t{s}".format(s=bestB))
         bestAs[bestB['comb']] = bestB['prob']
     print("bestAs\t{s}".format(s=bestAs))
     return FindBest(1,bestAs)
@@ -128,19 +131,19 @@ def Strategy3(states_space):
 def Strategy4(states_space):
     bestAs = {}
     for positionA in positions:
-        projectA = Project(positionA,states_space)
+        projectA = Project(1,positionA,states_space)
         bestBs = {}
         for positionB in positions:
             if positionA is not positionB:
-                projectB = Project(positionB,projectA)
+                projectB = Project(2,positionB,projectA)
                 bestCs = {}
                 for positionC in positions:
                     if positionA is not positionC and positionB is not positionC :
-                        projectC = Project(positionC,projectB)
+                        projectC = Project(3,positionC,projectB)
                         bestDs = {}
                         for positionD in positions:
                             if positionA is not positionD and positionB is not positionD and  positionC is not positionD:
-                                projectD = Project(positionD,projectC)
+                                projectD = Project(4,positionD,projectC)
                                 tmpD=FindBest(4,projectD)
                                 bestDs[tmpD['comb']] = tmpD['prob']
                         bestD = FindBest(4,bestDs)
@@ -163,7 +166,7 @@ if __name__ == "__main__":
     for i in range(test_num):
         print("---------------------%d------------------------" %(i))
         states_space = GenStates(positions,players_number)
-        print(states_space)
+        # print(states_space)
         fair_d = FindFair_d(states_space)
         fair_D = FindFair_D(states_space)
         fair_D_bar = FindFair_D_bar(states_space,players_number)
