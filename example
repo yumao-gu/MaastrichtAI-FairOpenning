@@ -1,0 +1,139 @@
+
+---------------------original------------------------
+{'abc': [80, 12, 8], 'acb': [80, 8, 12], 'bac': [12, 80, 8], 'bca': [12, 8, 80], 'cab': [8, 80, 12], 'cba': [8, 12, 80], 'abd': [19, 64, 17], 'adb': [19, 17, 64], 'bad': [64, 19, 17], 'bda': [64, 17, 19], 'dab': [17, 19, 64], 'dba': [17, 64, 19], 'acd': [94, 3, 3], 'adc': [94, 3, 3], 'cad': [3, 94, 3], 'cda': [3, 3, 94], 'dac': [3, 94, 3], 'dca': [3, 3, 94], 'bcd': [18, 42, 40], 'bdc': [18, 40, 42], 'cbd': [42, 18, 40], 'cdb': [42, 40, 18], 'dbc': [40, 18, 42], 'dcb': [40, 42, 18]}
+Fair_d:  	dcb	[40, 42, 18]
+Fair_D:  	dcb	[40, 42, 18]
+Fair_D_bar:  	bcd	[18, 42, 40]
+bestAs	{'abd': [19, 64, 17], 'bdc': [18, 40, 42], 'cab': [8, 80, 12], 'dab': [17, 19, 64]}
+Solution:  	abd	[19, 64, 17]
+
+---------------------inplace-previous------------------------
+{'abc': [81, 14, 5], 'acb': [81, 5, 14], 'bac': [14, 81, 5], 'bca': [14, 5, 81], 'cab': [5, 81, 14], 'cba': [5, 14, 81], 'abd': [89, 1, 10], 'adb': [89, 10, 1], 'bad': [1, 89, 10], 'bda': [1, 10, 89], 'dab': [10, 89, 1], 'dba': [10, 1, 89], 'acd': [43, 1, 56], 'adc': [43, 56, 1], 'cad': [1, 43, 56], 'cda': [1, 56, 43], 'dac': [56, 43, 1], 'dca': [56, 1, 43], 'bcd': [38, 40, 22], 'bdc': [38, 22, 40], 'cbd': [40, 38, 22], 'cdb': [40, 22, 38], 'dbc': [22, 38, 40], 'dcb': [22, 40, 38]}
+Fair_d:  	dcb	[22, 40, 38]
+Fair_D:  	dcb	[22, 40, 38]
+Fair_D_bar:  	bcd	[38, 40, 22]
+tmpC	{'comb': 'abc', 'prob': [81, 14, 5]}
+tmpC	{'comb': 'abd', 'prob': [89, 1, 10]}
+bestCs	{'abc': [81, 14, 5], 'abd': [89, 1, 10]}
+bestC	{'comb': 'abd', 'prob': [89, 1, 10]}
+tmpC	{'comb': 'acb', 'prob': [81, 5, 14]}
+tmpC	{'comb': 'acd', 'prob': [43, 1, 56]}
+bestCs	{'acb': [81, 5, 14], 'acd': [43, 1, 56]}
+bestC	{'comb': 'acd', 'prob': [43, 1, 56]}
+tmpC	{'comb': 'adb', 'prob': [89, 10, 1]}
+tmpC	{'comb': 'adc', 'prob': [43, 56, 1]}
+bestCs	{'adb': [89, 10, 1], 'adc': [43, 56, 1]}
+bestC	{'comb': 'adc', 'prob': [43, 56, 1]}
+bestBs	{'abd': [89, 1, 10], 'acd': [43, 1, 56], 'adc': [43, 56, 1]}
+bestB	{'comb': 'acd', 'prob': [43, 1, 56]}
+tmpC	{'comb': 'bac', 'prob': [14, 81, 5]}
+tmpC	{'comb': 'bad', 'prob': [1, 89, 10]}
+bestCs	{'bac': [14, 81, 5], 'bad': [1, 89, 10]}
+bestC	{'comb': 'bad', 'prob': [1, 89, 10]}
+tmpC	{'comb': 'bca', 'prob': [14, 5, 81]}
+tmpC	{'comb': 'bcd', 'prob': [38, 40, 22]}
+bestCs	{'bca': [14, 5, 81], 'bcd': [38, 40, 22]}
+bestC	{'comb': 'bca', 'prob': [14, 5, 81]}
+tmpC	{'comb': 'bda', 'prob': [1, 10, 89]}
+tmpC	{'comb': 'bdc', 'prob': [38, 22, 40]}
+bestCs	{'bda': [1, 10, 89], 'bdc': [38, 22, 40]}
+bestC	{'comb': 'bda', 'prob': [1, 10, 89]}
+bestBs	{'bad': [1, 89, 10], 'bca': [14, 5, 81], 'bda': [1, 10, 89]}
+bestB	{'comb': 'bda', 'prob': [1, 10, 89]}
+tmpC	{'comb': 'cab', 'prob': [5, 81, 14]}
+tmpC	{'comb': 'cad', 'prob': [1, 43, 56]}
+bestCs	{'cab': [5, 81, 14], 'cad': [1, 43, 56]}
+bestC	{'comb': 'cad', 'prob': [1, 43, 56]}
+tmpC	{'comb': 'cba', 'prob': [5, 14, 81]}
+tmpC	{'comb': 'cbd', 'prob': [40, 38, 22]}
+bestCs	{'cba': [5, 14, 81], 'cbd': [40, 38, 22]}
+bestC	{'comb': 'cba', 'prob': [5, 14, 81]}
+tmpC	{'comb': 'cda', 'prob': [1, 56, 43]}
+tmpC	{'comb': 'cdb', 'prob': [40, 22, 38]}
+bestCs	{'cda': [1, 56, 43], 'cdb': [40, 22, 38]}
+bestC	{'comb': 'cda', 'prob': [1, 56, 43]}
+bestBs	{'cad': [1, 43, 56], 'cba': [5, 14, 81], 'cda': [1, 56, 43]}
+bestB	{'comb': 'cad', 'prob': [1, 43, 56]}
+tmpC	{'comb': 'dab', 'prob': [10, 89, 1]}
+tmpC	{'comb': 'dac', 'prob': [56, 43, 1]}
+bestCs	{'dab': [10, 89, 1], 'dac': [56, 43, 1]}
+bestC	{'comb': 'dac', 'prob': [56, 43, 1]}
+tmpC	{'comb': 'dba', 'prob': [10, 1, 89]}
+tmpC	{'comb': 'dbc', 'prob': [22, 38, 40]}
+bestCs	{'dba': [10, 1, 89], 'dbc': [22, 38, 40]}
+bestC	{'comb': 'dba', 'prob': [10, 1, 89]}
+tmpC	{'comb': 'dca', 'prob': [56, 1, 43]}
+tmpC	{'comb': 'dcb', 'prob': [22, 40, 38]}
+bestCs	{'dca': [56, 1, 43], 'dcb': [22, 40, 38]}
+bestC	{'comb': 'dca', 'prob': [56, 1, 43]}
+bestBs	{'dac': [56, 43, 1], 'dba': [10, 1, 89], 'dca': [56, 1, 43]}
+bestB	{'comb': 'dca', 'prob': [56, 1, 43]}
+bestAs	{'acd': [43, 1, 56], 'bda': [1, 10, 89], 'cad': [1, 43, 56], 'dca': [56, 1, 43]}
+Solution:  	cda	[1, 56, 43]
+
+
+---------------------inplace-any------------------------
+{'abc': [39, 48, 13], 'acb': [39, 13, 48], 'bac': [48, 39, 13], 'bca': [48, 13, 39], 'cab': [13, 39, 48], 'cba': [13, 48, 39], 'abd': [36, 52, 12], 'adb': [36, 12, 52], 'bad': [52, 36, 12], 'bda': [52, 12, 36], 'dab': [12, 36, 52], 'dba': [12, 52, 36], 'acd': [40, 22, 38], 'adc': [40, 38, 22], 'cad': [22, 40, 38], 'cda': [22, 38, 40], 'dac': [38, 40, 22], 'dca': [38, 22, 40], 'bcd': [96, 1, 3], 'bdc': [96, 3, 1], 'cbd': [1, 96, 3], 'cdb': [1, 3, 96], 'dbc': [3, 96, 1], 'dcb': [3, 1, 96]}
+Fair_d:  	acd	[40, 22, 38]
+Fair_D:  	acd	[40, 22, 38]
+Fair_D_bar:  	acd	[40, 22, 38]
+tmpC	{'comb': 'abc', 'prob': [39, 48, 13]}
+tmpC	{'comb': 'abd', 'prob': [36, 52, 12]}
+bestCs	{'abc': [39, 48, 13], 'abd': [36, 52, 12]}
+bestC	{'comb': 'abc', 'prob': [39, 48, 13]}
+tmpC	{'comb': 'acb', 'prob': [39, 13, 48]}
+tmpC	{'comb': 'acd', 'prob': [40, 22, 38]}
+bestCs	{'acb': [39, 13, 48], 'acd': [40, 22, 38]}
+bestC	{'comb': 'acb', 'prob': [39, 13, 48]}
+tmpC	{'comb': 'adb', 'prob': [36, 12, 52]}
+tmpC	{'comb': 'adc', 'prob': [40, 38, 22]}
+bestCs	{'adb': [36, 12, 52], 'adc': [40, 38, 22]}
+bestC	{'comb': 'adb', 'prob': [36, 12, 52]}
+bestBs	{'abc': [39, 48, 13], 'acb': [39, 13, 48], 'adb': [36, 12, 52]}
+bestB	{'comb': 'acb', 'prob': [39, 13, 48]}
+tmpC	{'comb': 'bac', 'prob': [48, 39, 13]}
+tmpC	{'comb': 'bad', 'prob': [52, 36, 12]}
+bestCs	{'bac': [48, 39, 13], 'bad': [52, 36, 12]}
+bestC	{'comb': 'bac', 'prob': [48, 39, 13]}
+tmpC	{'comb': 'bca', 'prob': [48, 13, 39]}
+tmpC	{'comb': 'bcd', 'prob': [96, 1, 3]}
+bestCs	{'bca': [48, 13, 39], 'bcd': [96, 1, 3]}
+bestC	{'comb': 'bca', 'prob': [48, 13, 39]}
+tmpC	{'comb': 'bda', 'prob': [52, 12, 36]}
+tmpC	{'comb': 'bdc', 'prob': [96, 3, 1]}
+bestCs	{'bda': [52, 12, 36], 'bdc': [96, 3, 1]}
+bestC	{'comb': 'bda', 'prob': [52, 12, 36]}
+bestBs	{'bac': [48, 39, 13], 'bca': [48, 13, 39], 'bda': [52, 12, 36]}
+bestB	{'comb': 'bca', 'prob': [48, 13, 39]}
+tmpC	{'comb': 'cab', 'prob': [13, 39, 48]}
+tmpC	{'comb': 'cad', 'prob': [22, 40, 38]}
+bestCs	{'cab': [13, 39, 48], 'cad': [22, 40, 38]}
+bestC	{'comb': 'cab', 'prob': [13, 39, 48]}
+tmpC	{'comb': 'cba', 'prob': [13, 48, 39]}
+tmpC	{'comb': 'cbd', 'prob': [1, 96, 3]}
+bestCs	{'cba': [13, 48, 39], 'cbd': [1, 96, 3]}
+bestC	{'comb': 'cba', 'prob': [13, 48, 39]}
+tmpC	{'comb': 'cda', 'prob': [22, 38, 40]}
+tmpC	{'comb': 'cdb', 'prob': [1, 3, 96]}
+bestCs	{'cda': [22, 38, 40], 'cdb': [1, 3, 96]}
+bestC	{'comb': 'cdb', 'prob': [1, 3, 96]}
+bestBs	{'cab': [13, 39, 48], 'cba': [13, 48, 39], 'cdb': [1, 3, 96]}
+bestB	{'comb': 'cab', 'prob': [13, 39, 48]}
+tmpC	{'comb': 'dab', 'prob': [12, 36, 52]}
+tmpC	{'comb': 'dac', 'prob': [38, 40, 22]}
+bestCs	{'dab': [12, 36, 52], 'dac': [38, 40, 22]}
+bestC	{'comb': 'dab', 'prob': [12, 36, 52]}
+tmpC	{'comb': 'dba', 'prob': [12, 52, 36]}
+tmpC	{'comb': 'dbc', 'prob': [3, 96, 1]}
+bestCs	{'dba': [12, 52, 36], 'dbc': [3, 96, 1]}
+bestC	{'comb': 'dba', 'prob': [12, 52, 36]}
+tmpC	{'comb': 'dca', 'prob': [38, 22, 40]}
+tmpC	{'comb': 'dcb', 'prob': [3, 1, 96]}
+bestCs	{'dca': [38, 22, 40], 'dcb': [3, 1, 96]}
+bestC	{'comb': 'dcb', 'prob': [3, 1, 96]}
+bestBs	{'dab': [12, 36, 52], 'dba': [12, 52, 36], 'dcb': [3, 1, 96]}
+bestB	{'comb': 'dab', 'prob': [12, 36, 52]}
+bestAs	{'acb': [39, 13, 48], 'bca': [48, 13, 39], 'cab': [13, 39, 48], 'dab': [12, 36, 52]}
+Solution:  	cab	[13, 39, 48]
+
+
